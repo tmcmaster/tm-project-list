@@ -1,30 +1,32 @@
-import {html, LitElement} from 'lit-element';
-
-import './tm-project-card';
+import { html, LitElement } from 'lit-element';
+import "./tm-project-card.js";
 
 class TmProjectList extends LitElement {
+  // noinspection JSUnusedGlobalSymbols
+  static get properties() {
+    return {
+      heading: {
+        type: String
+      },
+      projects: {
+        type: Array
+      }
+    };
+  }
 
-    // noinspection JSUnusedGlobalSymbols
-    static get properties() {
-        return {
-            heading: {type: String},
-            projects: {type: Array}
-        }
-    }
+  constructor() {
+    super();
+    this.heading = 'List of Project';
+    this.projects = [];
+  }
 
-    constructor() {
-        super();
-        this.heading = 'List of Project';
-        this.projects = [];
-    }
+  setProjects(projects) {
+    this.projects = projects;
+  } // noinspection JSUnusedGlobalSymbols
 
-    setProjects(projects) {
-        this.projects = projects;
-    }
 
-    // noinspection JSUnusedGlobalSymbols
-    render() {
-        return html`
+  render() {
+    return html`
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             <style>
                 :host {
@@ -74,8 +76,7 @@ class TmProjectList extends LitElement {
                 documentation="${project.documentation}"></tm-project-card>
             `)}
         `;
-    }
-
+  }
 
 }
 

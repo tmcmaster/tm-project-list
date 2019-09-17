@@ -1,0 +1,37 @@
+{
+  "name": "tm-project-list",
+  "description": "Web component for showcasing projects",
+  "version": "0.0.0",
+  "license": "MIT",
+  "files": [
+    "dist-*/",
+    "bin/"
+  ],
+  "pika": true,
+  "sideEffects": true,
+  "homepage": "https://tmcmaster.github.io/tm-project-list/",
+  "repository": "https://github.com/tmcmaster/tm-project-list/",
+  "dependencies": {
+    "@material/card": "^3.2.0",
+    "@pika/types": "^0.6.1",
+    "lit-element": "^2.0.1",
+    "lit-html": "^1.0.0",
+    "material-components-web": "^3.2.0"
+  },
+  "devDependencies": {
+    "@pika/plugin-build-node": "^0.6.1",
+    "@pika/plugin-build-types": "^0.6.1",
+    "@pika/plugin-build-web": "^0.6.1",
+    "@pika/plugin-standard-pkg": "^0.6.1",
+    "@open-wc/building-rollup": "^0.3.0",
+    "@open-wc/demoing-storybook": "^0.2.0",
+    "http-server": "^0.11.1",
+    "owc-dev-server": "^0.3.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.6.0",
+    "rollup-plugin-css-bundle": "^1.0.4"
+  },
+  "esnext": "dist-src/index.js",
+  "main": "dist-node/index.js",
+  "module": "dist-web/index.js"
+}
