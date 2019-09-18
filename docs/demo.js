@@ -51,5 +51,14 @@ document.querySelector('tm-project-list').setProjects([
         demo: "https://tmcmaster.github.io/tm-project-list",
         source: "https://github.com/tmcmaster/tm-project-list",
         documentation: "https://github.com/tmcmaster/tm-project-list/blob/release/README.md"
+    },
+    {
+        image: "images/pika-play.png",
+        heading: "Pika Play",
+        subheading: "pika-play",
+        description: "Project for playing around with the pika build tool.",
+        demo: "https://tmcmaster.github.io/pika-play",
+        source: "https://github.com/tmcmaster/pika-play",
+        documentation: "https://github.com/tmcmaster/pika-play/blob/release/README.md"
     }
 ]);

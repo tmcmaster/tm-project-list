@@ -1,0 +1,24 @@
+#!/bin/bash
+
+INFILE=$1;
+if [[ -z "$INFILE" ]];
+then
+	echo "create-card-image.sh [INFILE] [OUTFILE]";
+	exit 1;
+fi
+
+OUTFILE=$2;
+if [[ -z "$OUTFILE" ]];
+then
+	echo "create-card-image.sh [INFILE] [OUTFILE]";
+	exit 2;
+fi
+
+BACKGROUND=$3;
+if [[ -z "$BACKGROUND" ]];
+then
+	BACKGROUND="white";
+fi
+
+#convert "${INFILE}" -resize 600x337.5 -background white -gravity center -extent 600x337.5 "${OUTFILE}"
+convert "${INFILE}" -resize 600x300 -background ${BACKGROUND} -gravity center  -extent 600x337.5 "${OUTFILE}"
