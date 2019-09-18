@@ -28,51 +28,57 @@ class TmProjectList extends LitElement {
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             <style>
                 :host {
+                    box-sizing: border-box;
                     display: inline-block;
+                    box-sizing: border-box;
+                    width: 100%;
                 }
                 h2 {
                     color: gray;
                 }
                 
-                @media only screen and (min-width: 300px) {
-                    tm-project-card {
-                        //border: solid blue 1px;
-                        width: 100%;
-                    }
+                tm-project-card {
+                    box-sizing: border-box;
                 }
-        
-                @media only screen and (min-width: 600px) {
-                    tm-project-card {
-                        //border: solid red 1px;
-                        width: 49%;
-                    }
+
+                .container {
+                    box-sizing: border-box;
+                    //border: solid green 1px;
+                    max-width: 1000px;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
-        
-                @media only screen and (min-width: 900px) {
-                    tm-project-card {
-                        //border: solid red 1px;
-                        width: 33%;
-                    }
+
+                .card {
+                    display: inline-block;
+                    box-sizing: border-box;
+                    //border: solid blue 1px;
+                    padding: 3px;
                 }
-        
-                @media only screen and (min-width: 1200px) {
-                    tm-project-card {
-                        //border: solid blue 1px;
-                        width: 24.6%;
-                    }
+                
+                @media only screen and (max-width: 900px) { .container { width: 100%; } } 
+                
+                @media only screen and (min-width: 300px) { .card { width: 100%; } } 
+                @media only screen and (min-width: 600px) { .card { width: 49%; } } 
+                @media only screen and (min-width: 900px) { .card { width: 33.33%; } } 
+                
+                h2 {
+                    text-align: center;
                 }
             </style>
-            <h2>${this.heading}</h2>
-            ${this.projects.map(project => html`
-                <tm-project-card
-                image="${project.image}"
-                heading="${project.heading}"
-                subheading="${project.subheading}"
-                description="${project.description}"
-                demo="${project.demo}"
-                source="${project.source}"
-                documentation="${project.documentation}"></tm-project-card>
-            `)}
+            <div class="container">
+                <h2>${this.heading}</h2>
+                ${this.projects.map(project => html`<div class="card">
+                        <tm-project-card
+                        image="${project.image}"
+                        heading="${project.heading}"
+                        subheading="${project.subheading}"
+                        description="${project.description}"
+                        demo="${project.demo}"
+                        source="${project.source}"
+                        documentation="${project.documentation}"></tm-project-card>
+                    </div>`)}
+            </div>
         `;
     }
 

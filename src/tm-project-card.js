@@ -1,5 +1,9 @@
 import {html, LitElement} from 'lit-element';
 
+import '@vaadin/vaadin-text-field/vaadin-text-field';
+import 'wired-elements/wired-helper';
+import 'wired-elements/wired-card';
+
 class TmProjectCard extends LitElement {
 
     // noinspection JSUnusedGlobalSymbols
@@ -23,13 +27,14 @@ class TmProjectCard extends LitElement {
     // noinspection JSUnusedGlobalSymbols
     render() {
         return html`
-<!--            <link href="material-components-web.css" rel="stylesheet">-->
             <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             <style>  
                 /*@import "./mdc.card.css";*/
                 :host {
                   display: inline-block;
+                  box-sizing: border-box;
+                  width: 100%;
                 }
                 h2 {
                     color: gray;
@@ -46,7 +51,20 @@ class TmProjectCard extends LitElement {
                 .mdc-card__action-icons > label {
                     margin-right: 15px;;
                 }
+                
+                .mdc-card {
+                    box-sizing: border-box;
+                    //border: solid red 1px;
+                    height: 100%;
+                }
+                
+                .demo-card__secondary {
+                    display: inline-block;  
+                    height: 100px;
+                }
+
             </style>
+            
             <div class="mdc-card demo-card">
                 <div class="mdc-card__primary-action" tabindex="0">
                     <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(${this.image});"></div>
@@ -55,7 +73,6 @@ class TmProjectCard extends LitElement {
                         <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">${this.subheading}</h3>
                     </div>
                     <div class="demo-card__secondary mdc-typography mdc-typography--body2">${this.description}</div>
-           
                 </div>
                 <div class="mdc-card__actions">
                     <div class="mdc-card__action-buttons">

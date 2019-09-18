@@ -26,7 +26,7 @@ render(html`
 
 document.querySelector('tm-project-list').setProjects([
     {
-        image: "https://raw.githubusercontent.com/tmcmaster/tm-project-list/develop/demo/images/tm-amazing-sitemap.png",
+        image: "images/tm-amazing-sitemap.png",
         heading: "Amazing Sitemap",
         subheading: "tm-amazing-sitemap",
         description: "A geeky retro site map, where the user can walk through a 3D maze, to find website pages.",

@@ -35,8 +35,10 @@
         "build:docs": "cd docs && npm run build"
     },
     "dependencies": {
+        "@vaadin/vaadin-text-field": "^2.4.11",
         "lit-element": "^2.0.1",
-        "lit-html": "^1.0.0"
+        "lit-html": "^1.0.0",
+        "wired-elements": "github:tmcmaster/wired-elements#release"
     },
     "devDependencies": {
         "@pika/plugin-build-node": "^0.6.1",
