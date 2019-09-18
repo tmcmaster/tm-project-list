@@ -65,4 +65,6 @@ web_modules
 dist
 junk
 hold
-demo
+pkg
+demo/node_modules
+demo/package-lock.json

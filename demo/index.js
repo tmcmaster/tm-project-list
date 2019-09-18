@@ -1,6 +1,6 @@
-import './src/tm-project-list.js';
-
 import {html, render} from './web_modules/lit-html.js';
+
+import './web_modules/@wonkytech/tm-project-list.js';
 
 render(html`
     <style>
