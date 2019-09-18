@@ -27,7 +27,7 @@
         ]
     },
     "scripts": {
-        "build": "npx @pika/web"
+        "build": "npm install && npx @pika/web"
     },
     "dependencies": {
         "lit-element": "^2.0.1",
