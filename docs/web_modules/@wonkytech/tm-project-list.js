@@ -10485,16 +10485,16 @@ class TmProjectCard extends LitElement {
       description: {
         type: String
       },
-      favorite: {
-        type: Boolean
-      },
-      demo: {
+      site: {
         type: String
       },
-      documentation: {
+      docs: {
         type: String
       },
-      source: {
+      src: {
+        type: String
+      },
+      npm: {
         type: String
       }
     };
@@ -10556,42 +10556,24 @@ class TmProjectCard extends LitElement {
                 </div>
                 <div class="mdc-card__actions">
                     <div class="mdc-card__action-buttons">
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" @click="${e => this.openDemo()}">Demo</button>
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" @click="${e => this.openDocs()}">Docs</button>
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" @click="${e => this.openSrc()}">Source</button>
-                    </div>
-                    <div class="mdc-card__action-icons">
-                        <button id="add-to-favorites" @click="${e => this.toggleFavorite()}"
-                           class="mdc-icon-button material-icons"
-                           aria-label="Add to favorites"
-                           aria-hidden="true"
-                           aria-pressed="false">
-                           <i id="aaa" class="material-icons mdc-icon-button__icon">${this.getFavoriteString()}</i>
-                        </button>
+                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${this.isInvalid(this.site)}" @click="${e => this.openIfValidURL(this.site)}">Site</button>
+                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${this.isInvalid(this.docs)}" @click="${e => this.openIfValidURL(this.docs)}">Docs</button>
+                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${this.isInvalid(this.src)}" @click="${e => this.openIfValidURL(this.src)}">Src</button>
+                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${this.isInvalid(this.npm)}" @click="${e => this.openIfValidURL(this.npm)}">NPM</button>
                     </div>
                 </div>    
             </div>
         `;
   }
 
-  openDemo() {
-    window.open(this.demo);
+  openIfValidURL(url) {
+    if (!this.isInvalid(url)) {
+      window.open(url);
+    }
   }
 
-  openDocs() {
-    window.open(this.documentation);
-  }
-
-  openSrc() {
-    window.open(this.source);
-  }
-
-  getFavoriteString() {
-    return this.favorite ? 'favorite' : 'favorite_border';
-  }
-
-  toggleFavorite() {
-    this.favorite = !this.favorite;
+  isInvalid(url) {
+    return url === undefined || url === "undefined" || url === "";
   }
 
 }
@@ -10673,9 +10655,10 @@ class TmProjectList extends LitElement {
                         heading="${project.heading}"
                         subheading="${project.subheading}"
                         description="${project.description}"
-                        demo="${project.demo}"
-                        source="${project.source}"
-                        documentation="${project.documentation}"></tm-project-card>
+                        site="${project.site}"
+                        src="${project.src}"
+                        npm="${project.npm}"
+                        docs="${project.docs}"></tm-project-card>
                     </div>`)}
             </div>
         `;
