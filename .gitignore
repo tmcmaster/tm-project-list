@@ -66,3 +66,4 @@ junk
 hold
 pkg
 docs/node_modules
+docs/package-lock.json
