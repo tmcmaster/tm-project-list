@@ -74,9 +74,10 @@ class TmProjectList extends LitElement {
                         heading="${project.heading}"
                         subheading="${project.subheading}"
                         description="${project.description}"
-                        demo="${project.demo}"
-                        source="${project.source}"
-                        documentation="${project.documentation}"></tm-project-card>
+                        site="${project.site}"
+                        src="${project.src}"
+                        npm="${project.npm}"
+                        docs="${project.docs}"></tm-project-card>
                     </div>`)}
             </div>
         `;
