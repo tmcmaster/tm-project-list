@@ -47,7 +47,6 @@ class TmProjectCard extends LitElement {
                     margin-right: 15px;;
                 }
             </style>
-            
             <div class="mdc-card demo-card">
                 <div class="mdc-card__primary-action" tabindex="0">
                     <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(${this.image});"></div>
