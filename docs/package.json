@@ -27,9 +27,7 @@
         ]
     },
     "scripts": {
-        "build": "pika build",
-        "version": "npm run build",
-        "publish": "pika publish"
+        "build": "npx @pika/web"
     },
     "dependencies": {
         "lit-element": "^2.0.1",
