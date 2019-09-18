@@ -65,5 +65,4 @@ dist
 junk
 hold
 pkg
-demo/node_modules
-demo/package-lock.json
+docs/node_modules
