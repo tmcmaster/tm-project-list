@@ -1,1 +1,46 @@
-../package.json
+{
+    "name": "demo-tm-project-list",
+    "version": "0.0.4",
+    "description": "Demo tm-project-list",
+    "author": "Tim McMaster",
+    "homepage": "https://tmcmaster.github.io/tm-project-list/",
+    "license": "MIT",
+    "repository": "https://github.com/tmcmaster/tm-project-list/",
+    "pika": true,
+    "sideEffects": true,
+    "@pika/pack": {
+        "pipeline": [
+            [
+                "@pika/plugin-standard-pkg",
+                {
+                    "exclude": [
+                        "__tests__/**/*"
+                    ]
+                }
+            ],
+            [
+                "@pika/plugin-build-node"
+            ],
+            [
+                "@pika/plugin-build-web"
+            ]
+        ]
+    },
+    "scripts": {
+        "build": "pika build",
+        "version": "npm run build",
+        "publish": "pika publish"
+    },
+    "dependencies": {
+        "lit-element": "^2.0.1",
+        "lit-html": "^1.0.0",
+        "@wonkytech/tm-project-list": "^0.0.5"
+    },
+    "devDependencies": {
+        "@pika/plugin-build-node": "^0.6.1",
+        "@pika/plugin-build-types": "^0.6.1",
+        "@pika/plugin-build-web": "^0.6.1",
+        "@pika/plugin-standard-pkg": "^0.6.1",
+        "@pika/types": "^0.6.1"
+    }
+}
