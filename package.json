@@ -1,6 +1,6 @@
 {
     "name": "@wonkytech/tm-project-list",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Web component for showcasing projects",
     "author": "tm-radial-tree",
     "homepage": "https://tmcmaster.github.io/tm-project-list/",
@@ -39,6 +39,7 @@
         "@pika/plugin-build-node": "^0.6.1",
         "@pika/plugin-build-types": "^0.6.1",
         "@pika/plugin-build-web": "^0.6.1",
-        "@pika/plugin-standard-pkg": "^0.6.1"
+        "@pika/plugin-standard-pkg": "^0.6.1",
+        "@pika/types": "^0.6.1"
     }
 }
