@@ -1,6 +1,6 @@
 import {html, LitElement} from 'lit-element';
 
-import './tm-project-card';
+import './tm-project-card.js';
 
 class TmProjectList extends LitElement {
 

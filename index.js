@@ -1,6 +1,6 @@
-import {html, render} from 'lit-html';
+import './src/tm-project-list.js';
 
-import '../src/index.js';
+import {html, render} from './web_modules/lit-html.js';
 
 render(html`
     <style>
@@ -28,7 +28,7 @@ render(html`
 
 document.querySelector('tm-project-list').setProjects([
     {
-        image: "images/tm-amazing-sitemap.png",
+        image: "https://raw.githubusercontent.com/tmcmaster/tm-project-list/develop/demo/images/tm-amazing-sitemap.png",
         heading: "Amazing Sitemap",
         subheading: "tm-amazing-sitemap",
         description: "A geeky retro site map, where the user can walk through a 3D maze, to find website pages.",

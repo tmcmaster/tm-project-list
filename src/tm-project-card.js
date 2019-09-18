@@ -1,7 +1,4 @@
 import {html, LitElement} from 'lit-element';
-//import '../web_modules/material-components-web.js';
-
-import '@material/card';
 
 class TmProjectCard extends LitElement {
 
@@ -27,9 +24,10 @@ class TmProjectCard extends LitElement {
     render() {
         return html`
 <!--            <link href="material-components-web.css" rel="stylesheet">-->
+            <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             <style>  
-                @import "../node_modules/@material/card/dist/mdc.card.css";
+                /*@import "./mdc.card.css";*/
                 :host {
                   display: inline-block;
                 }

@@ -1,1 +1,1 @@
-import 'tm-project-list';
+import './tm-project-list'
