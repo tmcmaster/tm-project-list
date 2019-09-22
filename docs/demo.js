@@ -63,6 +63,6 @@ document.querySelector('tm-project-list').setProjects([
         site: "https://media-bias-fact-check.web.app/",
         src: "https://github.com/tmcmaster/media-bias-fact-check",
         docs: "https://github.com/tmcmaster/media-bias-fact-check/blob/master/README.md",
-        private: false
+        private: true
     }
 ]);
