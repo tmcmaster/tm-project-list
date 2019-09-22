@@ -19,7 +19,19 @@ class TmProjectList extends LitElement {
     }
 
     setProjects(projects) {
-        this.projects = projects;
+        console.log('Setting Project Data: ', projects);
+        this.projects = projects.map(project => {return {
+            image: (project.image ? project.image : ""),
+            heading: (project.heading ? project.heading : ""),
+            subheading: (project.subheading ? project.subheading : ""),
+            description: (project.description ? project.description : ""),
+            site: (project.site ? project.site : ""),
+            src: (project.src ? project.src : ""),
+            docs: (project.docs ? project.docs : ""),
+            npm: (project.npm ? project.npm : ""),
+            private: (project.private === undefined ? false : project.private)
+        }});
+        console.log('Set Project Data: ', this.projects);
     }
 
     // noinspection JSUnusedGlobalSymbols
@@ -77,7 +89,8 @@ class TmProjectList extends LitElement {
                         site="${project.site}"
                         src="${project.src}"
                         npm="${project.npm}"
-                        docs="${project.docs}"></tm-project-card>
+                        docs="${project.docs}"
+                        ?private="${project.private}"></tm-project-card>
                     </div>`)}
             </div>
         `;

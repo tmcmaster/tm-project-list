@@ -32,7 +32,8 @@ document.querySelector('tm-project-list').setProjects([
         description: "A geeky retro site map, where the user can walk through a 3D maze, to find website pages.",
         site: "https://tmcmaster.github.io/tm-amazing-sitemap",
         src: "https://github.com/tmcmaster/tm-amazing-sitemap",
-        docs: "https://github.com/tmcmaster/tm-amazing-sitemap/blob/master/README.md"
+        docs: "https://github.com/tmcmaster/tm-amazing-sitemap/blob/master/README.md",
+        private: false
     },
     {
         image: "images/wired-elements.png",
@@ -41,7 +42,8 @@ document.querySelector('tm-project-list').setProjects([
         description: "Collection of functional web components, that have been styled to look hand drawn.",
         site: "https://wonkytech.net/apps/wired-elements/demo",
         src: "https://github.com/tmcmaster/wired-elements",
-        docs: "https://github.com/tmcmaster/wired-elements/blob/master/README.md"
+        docs: "https://github.com/tmcmaster/wired-elements/blob/master/README.md",
+        private: false
     },
     {
         image: "images/tm-project-list.png",
@@ -60,6 +62,7 @@ document.querySelector('tm-project-list').setProjects([
         description: "Visualising bias and fact accuracy of media sources.",
         site: "https://media-bias-fact-check.web.app/",
         src: "https://github.com/tmcmaster/media-bias-fact-check",
-        docs: "https://github.com/tmcmaster/media-bias-fact-check/blob/master/README.md"
+        docs: "https://github.com/tmcmaster/media-bias-fact-check/blob/master/README.md",
+        private: false
     }
 ]);

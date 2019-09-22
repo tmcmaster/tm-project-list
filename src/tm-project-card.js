@@ -1,9 +1,5 @@
 import {html, LitElement} from 'lit-element';
 
-import '@vaadin/vaadin-text-field/vaadin-text-field';
-import 'wired-elements/wired-helper';
-import 'wired-elements/wired-card';
-
 class TmProjectCard extends LitElement {
 
     // noinspection JSUnusedGlobalSymbols
@@ -16,12 +12,76 @@ class TmProjectCard extends LitElement {
             site: {type: String},
             docs: {type: String},
             src: {type: String},
-            npm: {type: String}
+            npm: {type: String},
+            private: { type: Boolean},
+            enabled: {type: Object}
         }
     }
 
     constructor() {
         super();
+        this.image = "";
+        this.heading = "";
+        this.subheading = "";
+        this.description = "";
+        this.site = "";
+        this.docs = "";
+        this.src = "";
+        this.npm = "";
+        this.private = false;
+        this.enabled = {
+            site: true,
+            docs: false,
+            src: false,
+            npm: true
+        };
+    }
+
+    shouldUpdate(changedProperties) {
+        changedProperties.forEach((oldValue, propName) => {
+            switch (propName) {
+                case 'site': this._siteChanged(this.site); break;
+                case 'docs': this._docsChanged(this.docs); break;
+                case 'src': this._srcChanged(this.src); break;
+                case 'npm': this._npmChanged(this.npm); break;
+                case 'private': this._privateChanged(this.private); break;
+            }
+            //console.log(`${propName} changed. newValue: ${this[propName]}`);
+        });
+        return super.shouldUpdate(changedProperties);
+    }
+
+
+    _siteChanged (url) {
+        this.enabled.site = (this._isValidURL(url) ? true : false);
+        //console.log('Setting SITE enabled: ', this.enabled.site, url);
+    }
+    _docsChanged (url) {
+        this.enabled.docs = (this._isValidURL(url) ? this.private : false);
+        //console.log('Setting DOCS enabled: ', this.enabled.docs, url);
+    }
+    _srcChanged (url) {
+        this.enabled.src = (this._isValidURL(url) ? this.private : false);
+        //console.log('Setting SRC enabled: ', this.enabled.src, url);
+    }
+    _npmChanged (url) {
+        this.enabled.npm = (this._isValidURL(url) ? true : false);
+        //console.log('Setting NPM enabled: ', this.enabled.npm, url);
+    }
+
+    _privateChanged(value) {
+        this.private = (value === true || value === "true" ? true : false);
+        if (this._isValidURL(this.docs)) {
+            this.enabled.docs = !this.private;
+        }
+        if (this._isValidURL(this.src)) {
+            this.enabled.src = !this.private;
+        }
+    }
+
+    _isValidURL(url) {
+        let invalid = (url === undefined || url === "undefined" || url === "" || url === null);
+        return !invalid;
     }
 
     // noinspection JSUnusedGlobalSymbols
@@ -60,9 +120,12 @@ class TmProjectCard extends LitElement {
                 
                 .demo-card__secondary {
                     display: inline-block;  
-                    height: 100px;
+                    height: 80px;
                 }
 
+                .demo-card__primary {
+                    height: 80px;
+                }
             </style>
             
             <div class="mdc-card demo-card">
@@ -76,10 +139,10 @@ class TmProjectCard extends LitElement {
                 </div>
                 <div class="mdc-card__actions">
                     <div class="mdc-card__action-buttons">
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${this.isInvalid(this.site)}" @click="${(e) => this.openIfValidURL(this.site)}">Site</button>
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${this.isInvalid(this.docs)}" @click="${(e) => this.openIfValidURL(this.docs)}">Docs</button>
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${this.isInvalid(this.src)}" @click="${(e) => this.openIfValidURL(this.src)}">Src</button>
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${this.isInvalid(this.npm)}" @click="${(e) => this.openIfValidURL(this.npm)}">NPM</button>
+                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${!this.enabled.site}" @click="${(e) => this.openIfValidURL(this.site)}">Site</button>
+                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${!this.enabled.docs}" @click="${(e) => this.openIfValidURL(this.docs)}">Docs</button>
+                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${!this.enabled.src}" @click="${(e) => this.openIfValidURL(this.src)}">Src</button>
+                        <button class="mdc-button mdc-card__action mdc-card__action--button" ?disabled="${!this.enabled.npm}" @click="${(e) => this.openIfValidURL(this.npm)}">NPM</button>
                     </div>
                 </div>    
             </div>
@@ -87,13 +150,7 @@ class TmProjectCard extends LitElement {
     }
 
     openIfValidURL(url) {
-        if (!this.isInvalid(url)) {
-            window.open(url)
-        }
-    }
-
-    isInvalid(url) {
-        return (url === undefined || url === "undefined" || url === "");
+        window.open(url)
     }
 }
 
