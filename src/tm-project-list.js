@@ -1,4 +1,4 @@
-import {html, LitElement} from 'lit-element';
+import {html, css, LitElement} from 'lit-element';
 
 import './tm-project-card.js';
 
@@ -8,13 +8,15 @@ class TmProjectList extends LitElement {
     static get properties() {
         return {
             heading: {type: String},
+            subheading: {type: String},
             projects: {type: Array}
         }
     }
 
     constructor() {
         super();
-        this.heading = 'List of Project';
+        this.heading = '';
+        this.subheading = '';
         this.projects = [];
     }
 
@@ -34,52 +36,62 @@ class TmProjectList extends LitElement {
         console.log('Set Project Data: ', this.projects);
     }
 
+    static get styles() {
+        // language=CSS
+        return css`
+            :host {
+                box-sizing: border-box;
+                display: inline-block;
+                box-sizing: border-box;
+                width: 100%;
+            }
+            h2 {
+                color: gray;
+            }
+
+            tm-project-card {
+                box-sizing: border-box;
+            }
+
+            .container {
+                box-sizing: border-box;
+            //border: solid green 1px;
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .card {
+                display: inline-block;
+                box-sizing: border-box;
+            //border: solid blue 1px;
+                padding: 3px;
+            }
+
+            @media only screen and (max-width: 900px) { .container { width: 100%; } }
+
+            @media only screen and (min-width: 300px) { .card { width: 100%; } }
+            @media only screen and (min-width: 600px) { .card { width: 49%; } }
+            @media only screen and (min-width: 900px) { .card { width: 33.33%; } }
+
+            h2 {
+                text-align: center;
+            }
+            h4 {
+                text-align: center;
+                font-style: italic;
+                color: grey;
+            }
+        `;
+    }
     // noinspection JSUnusedGlobalSymbols
     render() {
         return html`
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-            <style>
-                :host {
-                    box-sizing: border-box;
-                    display: inline-block;
-                    box-sizing: border-box;
-                    width: 100%;
-                }
-                h2 {
-                    color: gray;
-                }
-                
-                tm-project-card {
-                    box-sizing: border-box;
-                }
-
-                .container {
-                    box-sizing: border-box;
-                    //border: solid green 1px;
-                    max-width: 1000px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-
-                .card {
-                    display: inline-block;
-                    box-sizing: border-box;
-                    //border: solid blue 1px;
-                    padding: 3px;
-                }
-                
-                @media only screen and (max-width: 900px) { .container { width: 100%; } } 
-                
-                @media only screen and (min-width: 300px) { .card { width: 100%; } } 
-                @media only screen and (min-width: 600px) { .card { width: 49%; } } 
-                @media only screen and (min-width: 900px) { .card { width: 33.33%; } } 
-                
-                h2 {
-                    text-align: center;
-                }
-            </style>
+            
             <div class="container">
                 <h2>${this.heading}</h2>
+                <h4>${this.subheading}</h4>
                 ${this.projects.map(project => html`<div class="card">
                         <tm-project-card
                         image="${project.image}"

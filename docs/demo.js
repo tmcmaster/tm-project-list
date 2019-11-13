@@ -19,8 +19,7 @@ render(html`
     }
   </style>
   
-  <tm-project-list></tm-project-list>
-  
+  <tm-project-list heading="List of Project" subheading="Selection of interesting projects"></tm-project-list>
 
 `, document.querySelector('body'));
 
